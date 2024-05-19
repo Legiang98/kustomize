@@ -1,0 +1,35 @@
+# apiVersion: storage.k8s.io/v1
+# kind: StorageClass
+# metadata:
+#   name: standard
+#   namespace: dev
+# provisioner: ebs.csi.aws.com
+# parameters:
+#   type: gp2
+#   fsType: ext4
+# reclaimPolicy: Delete 
+# volumeBindingMode: WaitForFirstConsumer
+
+# ---
+# apiVersion: storage.k8s.io/v1
+# kind: StorageClass
+# metadata:
+#   name: ebs-sc
+# provisioner: ebs.csi.aws.com
+# reclaimPolicy: Delete 
+# volumeBindingMode: WaitForFirstConsumer
+# parameters:
+#   csi.storage.k8s.io/fstype: ext4
+#   type: gp2
+#   iopsPerGB: "8"
+
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: gp2
+parameters:
+  fsType: ext4
+  type: gp2
+provisioner: kubernetes.io/aws-ebs
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
