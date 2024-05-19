@@ -18,10 +18,10 @@ phases:
       - curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
       - mv kustomize /usr/local/bin/
       # - apt-get update && apt-get install -y 
-      - echo Installing AWS CLI v2...
-      - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-      - unzip awscliv2.zip
-      - ./aws/install
+      # - echo Installing AWS CLI v2...
+      # - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      # - unzip awscliv2.zip
+      # - ./aws/install
 
 
   pre_build:
@@ -36,7 +36,10 @@ phases:
       - echo Build started on `date`
       - echo Cloning repository...
       - echo git clone ${REPOSITORY_URI}
-      - git clone ${REPOSITORY_URI}
+      - git clone https://github.com/Legiang98/multi-container-app.git
+
+
+      # - git clone ${REPOSITORY_URI}
       - cd ./giang-manifest-demo/overlays/dev
 
       - echo Updating kustomization.yaml with new image tag...
