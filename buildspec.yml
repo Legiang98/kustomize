@@ -26,22 +26,22 @@ phases:
       - echo $PASSWORD | docker login --username $DOCKERHUB_NAME --password-stdin
 
   build:
-      commands:
-        - echo Build started on `date`
-        - echo Cloning repository...
-        - git clone ${REPOSITORY_URI}
-        - cd your-repo-name/overlays/dev
+    commands:
+      - echo Build started on `date`
+      - echo Cloning repository...
+      # - git clone ${REPOSITORY_URI}
+      - cd overlays/dev
 
-        - echo Updating kustomization.yaml with new image tag...
-        - kustomize edit set image giangle197/demo-web-app=${REGISTRY}/demo-web-app:${CODEBUILD_RESOLVED_SOURCE_VERSION}
-        - kustomize edit set image giangle197/demo-api-app=${REGISTRY}/demo-api-app:${CODEBUILD_RESOLVED_SOURCE_VERSION}
+      - echo Updating kustomization.yaml with new image tag...
+      - kustomize edit set image giangle197/demo-web-app=${REGISTRY}/demo-web-app:${CODEBUILD_RESOLVED_SOURCE_VERSION}
+      - kustomize edit set image giangle197/demo-api-app=${REGISTRY}/demo-api-app:${CODEBUILD_RESOLVED_SOURCE_VERSION}
 
 
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Committing and pushing changes...
-      - git remote add origin ssh://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/giang-manifest-demo
+      # - git remote add origin ssh://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/giang-manifest-demo
       - git add .
       - git commit -m "Update kustomization with new image tags"
       - git push origin main
