@@ -5,7 +5,9 @@ resources:
 patchesStrategicMerge:
 - ./deployment-patch.yaml
 images:
-- name: giangle197/demo-web-app
-  newTag: a6538ed5ca95272a8fe3bf994ffff4275ab79e09
 - name: giangle197/demo-api-app
-  newTag: a6538ed5ca95272a8fe3bf994ffff4275ab79e09
+  newName: giangle197/demo-api-app
+  newTag: v3
+- name: giangle197/demo-web-app
+  newName: giangle197/demo-web-app
+  newTag: v3
