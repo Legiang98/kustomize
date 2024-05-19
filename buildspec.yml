@@ -9,9 +9,10 @@ env:
   secrets-manager:
     passwd: "arn:aws:secretsmanager:ap-southeast-2:179623033511:secret:demo/CodeBuild/dockerhub_passwd-TyEpPn"
 
-install:
+phases:
+  install:
     runtime-versions:
-      docker: 18
+      nodejs: 16
     commands:
       - echo Installing kustomize...
       - curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
