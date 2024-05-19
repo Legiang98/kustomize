@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     DOCKERHUB_NAME: "dangvu1971998@gmail.com"
-    REPOSITORY_URI: "codecommit::ap-southeast-2://giang-manifest-demo"
+    REPOSITORY_URI: "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/giang-manifest-demo"
     REGISTRY: "giangle197"
 
   secrets-manager:
@@ -17,12 +17,7 @@ phases:
       - echo Installing kustomize...
       - curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
       - mv kustomize /usr/local/bin/
-      - echo Installing jq for JSON parsing...
-      - apt-get update && apt-get install -y jq
-      - echo Installing AWS CLI v2...
-      - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-      - unzip awscliv2.zip
-      - ./aws/install
+
 
   pre_build:
     commands:
