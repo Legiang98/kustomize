@@ -17,7 +17,7 @@ phases:
       - echo Installing kustomize...
       - curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
       - mv kustomize /usr/local/bin/
-      - apt-get update && apt-get install -y 
+      # - apt-get update && apt-get install -y 
       - echo Installing AWS CLI v2...
       - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
       - unzip awscliv2.zip
