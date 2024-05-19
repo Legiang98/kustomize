@@ -30,7 +30,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Cloning repository...
-      - echo ${REPOSITORY_URI}
+      - echo git clone ${REPOSITORY_URI}
       - git clone ${REPOSITORY_URI}
       - cd ./giang-manifest-demo/overlays/dev
 
