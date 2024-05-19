@@ -29,7 +29,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Cloning repository...
-      # - git clone ${REPOSITORY_URI}
+      - git clone ${REPOSITORY_URI}
       - cd overlays/dev
 
       - echo Updating kustomization.yaml with new image tag...
@@ -40,11 +40,11 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      # - echo Committing and pushing changes...
+      - echo Committing and pushing changes...
       # - git remote add origin ssh://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/giang-manifest-demo
-      # - git add .
-      # - git commit -m "Update kustomization with new image tags"
-      # - git push origin main
+      - git add .
+      - git commit -m "Update kustomization with new image tags"
+      - git push origin main
 
 artifacts:
   files: imagedefinitions.json
