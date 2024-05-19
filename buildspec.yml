@@ -36,8 +36,8 @@ phases:
       - cd ./giang-manifest-demo/overlays/dev
 
       - echo Updating kustomization.yaml with new image tag...
-      - kustomize edit set image giangle197/demo-web-app=${REGISTRY}/demo-web-app:v2  # ${CODEBUILD_RESOLVED_SOURCE_VERSION}
-      - kustomize edit set image giangle197/demo-api-app=${REGISTRY}/demo-api-app:v2   #${CODEBUILD_RESOLVED_SOURCE_VERSION}
+      - kustomize edit set image giangle197/demo-web-app=${REGISTRY}/demo-web-app:v3  # ${CODEBUILD_RESOLVED_SOURCE_VERSION}
+      - kustomize edit set image giangle197/demo-api-app=${REGISTRY}/demo-api-app:v3   #${CODEBUILD_RESOLVED_SOURCE_VERSION}
 
 
   post_build:
