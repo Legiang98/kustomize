@@ -17,6 +17,12 @@ phases:
       - echo Installing kustomize...
       - curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
       - mv kustomize /usr/local/bin/
+      - echo Installing jq for JSON parsing...
+      - apt-get update && apt-get install -y jq
+      - echo Installing AWS CLI v2...
+      - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      - unzip awscliv2.zip
+      - ./aws/install
 
   pre_build:
     commands:
@@ -31,7 +37,7 @@ phases:
       - echo Cloning repository...
       - echo ${REPOSITORY_URI}
       - git clone ${REPOSITORY_URI}
-      - cd overlays/dev
+      - cd ./giang-manifest-demo/overlays/dev
 
       - echo Updating kustomization.yaml with new image tag...
       - kustomize edit set image giangle197/demo-web-app=${REGISTRY}/demo-web-app:test01  # ${CODEBUILD_RESOLVED_SOURCE_VERSION}
@@ -42,6 +48,8 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Committing and pushing changes...
+      - git config --global user.email "gianglecodebuild@tech.com"
+      - git config --global user.name "Gianglv"
       # - git remote add origin ssh://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/giang-manifest-demo
       - git add .
       - git commit -m "Update kustomization with new image tags"
