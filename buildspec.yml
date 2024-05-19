@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     DOCKERHUB_NAME: "dangvu1971998@gmail.com"
-    REPOSITORY_URI: "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/giang-manifest-demo"
+    REPOSITORY_URI: "codecommit::ap-southeast-2://giang-manifest-demo"
     REGISTRY: "giangle197"
 
   secrets-manager:
@@ -29,6 +29,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Cloning repository...
+      - echo ${REPOSITORY_URI}
       - git clone ${REPOSITORY_URI}
       - cd overlays/dev
 
