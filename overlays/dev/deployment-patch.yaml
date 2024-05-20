@@ -42,6 +42,7 @@ spec:
     spec:
       containers:
       - name: api
+        image: giangle197/demo-api-app
         ports:
           - containerPort: 5000
         env:
