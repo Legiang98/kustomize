@@ -6,9 +6,9 @@ resources:
 images:
 - name: giangle197/demo-web-app
   newName: giangle197/demo-web-app
-  newTag: v1
+  newTag: v2
 - name: giangle197/demo-api-app
   newName: giangle197/demo-api-app
-  newTag: v3
+  newTag: v2
 patches:
 - path: deployment-patch.yaml
