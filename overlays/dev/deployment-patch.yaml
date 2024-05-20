@@ -15,7 +15,6 @@ spec:
     spec:
       containers:
       - name: web
-        image: giangle197/nginx_lab:v2
         ports:
           - containerPort: 8080
             protocol: TCP
