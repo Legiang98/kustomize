@@ -8,6 +8,6 @@ images:
   newName: giangle197/demo-web-app
   newTag: v1
 - name: giangle197/nginx
-  newTag: v2
+  newTag: v1
 patches:
 - path: deployment-patch.yaml
