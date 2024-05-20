@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-demo-cicd
+  namespace: dev
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: web
+        image: giangle197/nginx_lab:v2
+        ports:
+          - containerPort: 8080
+            protocol: TCP
